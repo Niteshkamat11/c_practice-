@@ -112,23 +112,21 @@ int main(){
 }
 */
 
-
-// #include <stdio.h>
-// int main() {
-//   int i = 9384;
-//   do{
-//       printf("%d\n",i);
-//       i /= 10;
-
-//   } while(i > 0);
-// }
-
 #include <stdio.h>
 int main() {
-    int i; int j;
-    for
-      
-       
-        ( i = 5,  j = i -1; i > 0,j >0; --i,j = i -1)
-        printf("%d\n",i);
-}
+  int i = 9384;
+  do{
+      printf("%d\n",i);
+      i /= 10;
+  } while(i > 0);
+} 
+
+
+// / #include <stdio.h>
+// int main() {
+//   int i;
+//   int j;
+
+//   for (i = 5, j = i - 1; i > 0, j > 0; --i, j = i - 1)
+//     printf("%d\n", i);
+// }
