@@ -1,6 +1,6 @@
 /*
-#include<stdio.h>
-#include<math.h>
+include<stdio.h>
+include<math.h>
 int main(){
     printf("%d\n",8%3);
     return 0;
@@ -112,14 +112,14 @@ int main(){
 }
 */
 
-#include <stdio.h>
-int main() {
-  int i = 9384;
-  do{
-      printf("%d\n",i);
-      i /= 10;
-  } while(i > 0);
-} 
+// #include <stdio.h>
+// int main() {
+//   int i = 9384;
+//   do{
+//       printf("%d\n",i);
+//       i /= 10;
+//   } while(i > 0);
+// } 
 
 
 // / #include <stdio.h>
@@ -130,3 +130,72 @@ int main() {
 //   for (i = 5, j = i - 1; i > 0, j > 0; --i, j = i - 1)
 //     printf("%d\n", i);
 // }
+//
+//
+#include<stdio.h>
+
+
+// int main(void){
+//     // int a = 7;
+//     // int b = 2;
+//     // float c = a/b;
+//     // printf("%f\n",c);
+
+//     int x = 5;
+//     int y = 10;
+//     int z = x + y * 2 - 3;
+
+//     printf("%d\n", z);
+
+//     int a = 0;
+//     int b = 5;
+
+//     if (a != 0 && b / a > 1) {
+//         printf("yes\n");
+//     } else {
+//         printf("no\n");
+//     }
+// }
+//
+int power(int base, int exp);
+int main(){
+    int base;
+    int exp;
+    printf("enter the base:");
+    scanf("%d",&base);
+    printf("enter the exp:");
+    scanf("%d",&exp);
+    int result = power(base,exp); // calls function
+    printf("the result of %d to the power of %d is : %d\n",base,exp,result);
+}
+
+int power(int base , int exp){
+    if (exp==0) return 1;
+    int c = base * power(base,exp-1);
+    return c;
+}
+
+/*
+ int fib(int n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+ }
+
+ printf("%d\n", fib(5));
+ 
+ 
+ * suppse n = 5;
+* fib(5) =fib(4) + fib(3)
+*fib(4) =fib(3) + fib(2)
+fib(3) =fib(2)+ fib(1)
+fib(2) =  fib(1) + fib(0)
+fib(1) = 1
+fib(0) = 0
+fib(2)=1
+fib(3) =2
+fib(4) = 2 +1 = 3
+fib(5) = 3 + 2 = 5 
+
+
+
+* */

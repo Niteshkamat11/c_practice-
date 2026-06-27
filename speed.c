@@ -1,3 +1,4 @@
+//the speed of air analysis
 #include<stdio.h>
 int main(){
     int speed;
