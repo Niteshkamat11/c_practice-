@@ -42,8 +42,7 @@ int main(void){
 
         currentplayer = (currentplayer == 'X') ? 'O' : 'X'; 
 
-    }  
-    display(grid);
+    }
     return 0;
 }
 int display(char grid[3][3]){
