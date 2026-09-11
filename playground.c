@@ -132,7 +132,6 @@ int main(){
 // }
 //
 //
-#include<stdio.h>
 
 
 // int main(void){
@@ -157,33 +156,37 @@ int main(){
 //     }
 // }
 //
-int power(int base, int exp);
-int main(){
-    int base;
-    int exp;
-    printf("enter the base:");
-    scanf("%d",&base);
-    printf("enter the exp:");
-    scanf("%d",&exp);
-    int result = power(base,exp); // calls function
-    printf("the result of %d to the power of %d is : %d\n",base,exp,result);
-}
+// int power(int base, int exp);
+// int main(){
+//     int base;
+//     int exp;
+//     printf("enter the base:");
+//     scanf("%d",&base);
+//     printf("enter the exp:");
+//     scanf("%d",&exp);
+//     int result = power(base,exp); // calls function
+//     printf("the result of %d to the power of %d is : %d\n",base,exp,result);
+// }
 
-int power(int base , int exp){
-    if (exp==0) return 1;
-    int c = base * power(base,exp-1);
-    return c;
-}
+// int power(int base , int exp){
+//     if (exp==0) return 1;
+//     int c = base * power(base,exp-1);
+//     return c;
+// }
 
-/*
+#include<stdio.h>
  int fib(int n) {
     if (n <= 1) return n;
     return fib(n - 1) + fib(n - 2);
  }
+int main(){
+    printf("%d\n", fib(4));
+    return 0;
+}
 
- printf("%d\n", fib(5));
  
  
+ /*
  * suppse n = 5;
 * fib(5) =fib(4) + fib(3)
 *fib(4) =fib(3) + fib(2)
@@ -199,3 +202,15 @@ fib(5) = 3 + 2 = 5
 
 
 * */
+
+
+// int fact(int n) {
+//     if (n <= 1) return 1;    // ← BASE CASE — this is what SAVES you
+//     return n * fact(n - 1);
+// }
+
+// int main(){
+//     printf("factorial is %d\n",fact(4));
+//     return 0
+//         ;
+// }

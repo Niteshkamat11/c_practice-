@@ -13,6 +13,8 @@ int main(){
     printf("enter the string : ");
     fgets(str,n,stdin);
     int len = strlen(str);
+
+    printf("len = %d\n",len);
     
     if(len >0 && str[len-1] == '\n'){
         str[len-1] = '\0';

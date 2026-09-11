@@ -43,7 +43,7 @@
     // printf("x = %d\n y = %d\n",x,y);
     
 
-// }
+ //}
 // void swap(int *a , int *b){
 //     int temp = *a; 
 //     *a = *b; 
@@ -56,14 +56,14 @@
 /*
  *
  */
-int main(void){
-    char buffer[5];
-    buffer[0]='C';
-    buffer[1]='a';
-    buffer[2]='t';
-    buffer[3]='\0';
+// int main(void){
+//     char buffer[5];
+//     buffer[0]='C';
+//     buffer[1]='a';
+//     buffer[2]='t';
+//     buffer[3]='\0';
 
-    printf("%s\n",buffer);
-    printf("%lu\n",sizeof(buffer));
+//     printf("%s\n",buffer);
+//     printf("%lu\n",sizeof(buffer));
 
-}
+// }
