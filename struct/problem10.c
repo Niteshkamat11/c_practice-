@@ -49,6 +49,7 @@ matrix* creatematrix(int row,int col,int matrix1[row][col]){
 }
 
 void freematrix(matrix **ptr){
+        if(ptr==NULL || *ptr == NULL) return ;
         for(int i = 0 ; i<((*ptr)->rows) ; i++){
             free((*ptr)->data[i]);
         }
@@ -74,9 +75,9 @@ int main(){
     int row,col;
 
     printf("Enter the row = ");
-    scanf("%d",&row); // row = 2 ani col = 2
+    if(scanf("%d",&row) !=1 || row <= 0) return 1;
     printf("Enter the col = ");
-    scanf("%d",&col);
+    if(scanf("%d",&col) != 1 || col<=0) return 1;
 
     int matrix1[row][col];
 

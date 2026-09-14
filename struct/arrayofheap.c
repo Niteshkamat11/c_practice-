@@ -7,13 +7,20 @@ typedef struct{
 }animal;
 
 
-void create (animal **zoo , char **name  , int *leg){
+int create (animal **zoo , char **name  , int *leg){
 
     for(int i = 0; i<3; i++){
 
         *(zoo + i) = malloc(sizeof(animal));
         
-        if(*(zoo + i)==NULL) return;
+        if(*(zoo + i)==NULL){
+            for (int j = i-1 ; j >=0 ; j--){
+                free(*(zoo + j )); 
+                zoo[j] = NULL;
+            }
+            return 0;
+        } 
+
         
         strcpy((*(zoo + i))->name ,*(name + i));
         
@@ -21,6 +28,7 @@ void create (animal **zoo , char **name  , int *leg){
         
         
     }
+    return 1;
 
 }
 
@@ -43,10 +51,13 @@ void destroymem(animal **zoo){
 }
 
 int main(){
-       animal *zoo[3];
+       animal *zoo[3] = {NULL};
        char *name[3] = {"dog","cat","spider"};
        int legs[3] = {4,4,8}; 
-     create(zoo,name,legs);
+     if(!create(zoo,name,legs)){
+         printf("Zoo allocation failed!\n");
+         return 1;
+     };
      displayanimal(zoo);
      destroymem(zoo);
 }
