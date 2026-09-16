@@ -11,48 +11,49 @@ typedef struct{
     int historycount;
 }employee;
 
-employee* addsalaryrecord(employee *ptr,int count,char *name,float salaryhistory,int *capacity){
-    if(ptr == NULL || name == NULL || capacity == NULL) return NULL;
+employee* addsalaryrecord(employee *ptr,char *name,float salaryhistory,int *capacity){
+    if(ptr == NULL || name == NULL || capacity == NULL) return NULL; //defense
+    
+    char *new_name =NULL;
 
-    ptr->historycount = count;
+    if(ptr->name == NULL){
+        new_name = malloc(strlen(name)+1);
+        if(new_name == NULL){
+            return NULL;
+        }
+        strcpy(new_name , name);
+    }
     if(ptr->historycount == *capacity){
         int new_capacity = *capacity + 1;
 
         float *ptr1 = realloc(ptr->salaryhistory,new_capacity * sizeof(float));
 
         if(ptr1 == NULL){
-            free(ptr->salaryhistory);
-            free(ptr);
+            free(new_name);
             return NULL;
         }
         *capacity = new_capacity;
         ptr->salaryhistory = ptr1;
     }
-    *(ptr->salaryhistory) = salaryhistory;
-        ptr->salaryhistory[ptr->historycount] = salaryhistory;
-    
 
     if(ptr->name == NULL){
-        ptr->name = malloc(strlen(name)+1);
-        if(ptr->name == NULL){
-
-            free(ptr->salaryhistory);
-            free(ptr);
-            return NULL;
-        }
-        strcpy(ptr->name , name);
+        ptr->name = new_name;
     }
+    ptr->salaryhistory[ptr->historycount] = salaryhistory;
+    
+
     (ptr->historycount)++;
     return ptr;
 }
 int main(){
-    int count = 0;
+
     int capacity = 1;
     employee *ptr = malloc(sizeof(employee));
 
     if(ptr == NULL){
         return 1;
     }
+    ptr->historycount = 0;
     ptr->name = NULL;
     ptr->salaryhistory = malloc(capacity * sizeof(float));
 
@@ -61,11 +62,15 @@ int main(){
         ptr=NULL; //resolving dangling pointer
         return 1;
     }
-    ptr = addsalaryrecord(ptr,count, "Nitesh kamat",55000.00,&capacity);
-    if(ptr == NULL){
+    employee *ptr1 = addsalaryrecord(ptr,"Nitesh kamat",55000.00,&capacity);
+    if(ptr1 == NULL){
+        free(ptr->name);
+        free(ptr->salaryhistory);
+        free(ptr);
         printf("addsalary fxn failed\n");
         return 1;
     }
+    ptr = ptr1;
 
     for(int i = 0 ; i<ptr->historycount ; i++){
         printf("name = %s\tsalaryhistory = %f\n",ptr->name,ptr->salaryhistory[i]);
