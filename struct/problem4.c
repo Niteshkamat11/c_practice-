@@ -48,7 +48,7 @@ Task *createTask(char *desc, int priority) {
 void destroyTask(Task **t){
 
     free((*t)->description);
-    free(*t); // if this is freed without freeing the description first then it would leak 4 byte of memory
+    free(*t); // if this is freed without freeing the description first then it would leak 17 bytes which is length of description including null teminator
     *t = NULL;
 
 }

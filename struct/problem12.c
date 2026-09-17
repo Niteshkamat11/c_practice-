@@ -14,10 +14,11 @@ typedef struct Node{
     struct Node *next;
 }Node;
 
-Node *createNode(int val){
+Node *createchain(int val){
     if(val <=0) return NULL; //defense
 
     Node **ptr = malloc(val *sizeof(Node*));
+    if(ptr == NULL) return NULL;
 
     for(int i = 0 ; i<val ; i++){
         ptr[i] = malloc(sizeof(Node));
@@ -63,7 +64,7 @@ void destroy(Node *head){
 
 int main(){
 
-    Node *head = createNode(3);
+    Node *head = createchain(3);
 
     if(head == NULL){
         printf("create node failed\n");

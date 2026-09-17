@@ -27,8 +27,13 @@ printf("%s\n", p->name);   // what's wrong here? THREE things, actually.
  
 int main(){
     Person *p = malloc(sizeof(Person));
+    if(p == NULL) return 1;
 
     p->name = malloc(20);
+    if(p->name){
+        free(p);
+        return 1;
+    }
     strcpy(p->name, "Alice");
 
     printf("%s\n", p->name);   // what's wrong here? THREE things, actually.
