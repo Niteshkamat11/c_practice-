@@ -22,6 +22,7 @@ int storedata(Book *ptr,char *title , char *author){
     ptr->author = malloc(strlen(author)+1);
     if(!(ptr->author)) {
         free(ptr->title);
+        ptr->title = NULL;
         return 0;
     }
     strcpy(ptr->author , author);
@@ -49,6 +50,7 @@ int main(void){
     }
     if(!storedata(ptr , "The stranger" , "Albert camus")){
         freemem(&ptr);
+        return 1;
     }
     printstruct(ptr);
 

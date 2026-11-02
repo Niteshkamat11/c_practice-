@@ -30,7 +30,7 @@ int main(){
     if(p == NULL) return 1;
 
     p->name = malloc(20);
-    if(p->name){
+    if(!p->name){
         free(p);
         return 1;
     }
